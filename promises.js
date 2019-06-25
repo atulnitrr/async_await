@@ -35,16 +35,32 @@ const createPost = post => {
 //     console.log(error);
 //   });
 
-// Promise.all
-const promise1 = Promise.resolve("Hello world ");
-const promise2 = 10;
-const promise3 = new Promise((resolve, reject) => {
-  setTimeout(resolve, 2000, "Good bye");
-});
-const promise4 = fetch("https://jsonplaceholder.typicode.com/users").then(res =>
-  res.json()
-);
+// async await
 
-Promise.all([promise1, promise2, promise3, promise4]).then(value =>
-  console.log(value)
-);
+// const init = async () => {
+//   await createPost({ title: "Post four", body: "This is post four" });
+//   getPost();
+// };
+
+// init();
+
+async function fetchData() {
+  const res = await fetch("https://jsonplaceholder.typicode.com/users");
+  const data = await res.json();
+  console.log(data);
+}
+fetchData();
+
+// Promise.all
+// const promise1 = Promise.resolve("Hello world ");
+// const promise2 = 10;
+// const promise3 = new Promise((resolve, reject) => {
+//   setTimeout(resolve, 2000, "Good bye");
+// });
+// const promise4 = fetch("https://jsonplaceholder.typicode.com/users").then(res =>
+//   res.json()
+// );
+
+// Promise.all([promise1, promise2, promise3, promise4]).then(value =>
+//   console.log(value)
+// );
